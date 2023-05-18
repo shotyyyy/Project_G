@@ -129,7 +129,7 @@ namespace DietApp {
 
 	private: System::Void numericUpDownWeight_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 
-	private: void ShowResult(double res);
+	private: void ShowResult(double kRes, double bmiRes, double prRes, double ftRes, double cbRes, std::string trRes);
 
 	};
 }

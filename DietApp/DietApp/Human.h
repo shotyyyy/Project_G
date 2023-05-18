@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+// ѕодключение пространств имен
+
 using namespace std;
 
 class Human
@@ -23,7 +25,7 @@ public:
 	Human(string n, string g, double w, double h, string toa, double a);
 
 	//получение информации каждого параметра и его вывод
-	//гнедер
+	//гендер
 
 	void setGenere(string g);
 	string getGenere();
@@ -56,8 +58,8 @@ public:
 
 	//перегрузка операторов ввода и вывода
 
-	friend ostream& operator<<(ostream& os, Human& obj);
-	friend istream& operator>>(istream& is, Human& obj);
+	/*friend ostream& operator<<(ostream& os, Human& obj);
+	friend istream& operator>>(istream& is, Human& obj);*/
 
 
 };
