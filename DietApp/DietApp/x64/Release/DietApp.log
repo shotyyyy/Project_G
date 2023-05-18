@@ -1,0 +1,6 @@
+﻿  DietApp.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Создание кода...
+  DietApp.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+MSVCRT.lib(exe_winmain.obj) : error LNK2019: ссылка на неразрешенный внешний символ WinMain в функции "int __cdecl __scrt_common_main_seh(void)" (?__scrt_common_main_seh@@YAHXZ).
+C:\Users\olegg\source\repos\DietApp\x64\Release\DietApp.exe : fatal error LNK1120: неразрешенных внешних элементов: 1

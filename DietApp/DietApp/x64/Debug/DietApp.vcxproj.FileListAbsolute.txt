@@ -1,0 +1,3 @@
+C:\Users\olegg\source\repos\DietApp\DietApp\x64\Debug\DietApp.DietApp.resources
+C:\Users\olegg\source\repos\DietApp\DietApp\x64\Debug\DietApp.vcxproj.GenerateResource.cache
+C:\Users\olegg\source\repos\DietApp\DietApp\x64\Debug\DietApp.vcxproj.AssemblyReference.cache
