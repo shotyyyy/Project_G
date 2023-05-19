@@ -14,6 +14,9 @@ double ClientAge = 0.0;
 double ClientHeight = 0.0;
 double ClientWeight = 0.0;
 std::string ClientGender = "";
+std::string ClientFirstName = "";
+std::string ClientSecondName = "";
+std::string ClientFullName = "";
 
 // Глобальные объекты классов (Human, Diet)
 
@@ -43,7 +46,7 @@ inline DietApp::DietApp::~DietApp()
 	}
 }
 
-// Создание визуала формы (вкладки, текст, кнопки, поля(ввода/вывода) и т.д.)
+// Создание внешнего вида формы (вкладки, текст, кнопки, поля(ввода/вывода) и т.д.)
 
 inline void DietApp::DietApp::InitializeComponent(void)
 {
@@ -61,12 +64,16 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->textBoxSecName = (gcnew System::Windows::Forms::TextBox());
 	this->textBoxName = (gcnew System::Windows::Forms::TextBox());
 	this->tabPageResults = (gcnew System::Windows::Forms::TabPage());
+	this->AboutFPC = (gcnew System::Windows::Forms::Button());
+	this->AboutBMI = (gcnew System::Windows::Forms::Button());
+	this->AboutNutrition = (gcnew System::Windows::Forms::Button());
 	this->FinishResult = (gcnew System::Windows::Forms::TextBox());
 	this->CarbohydratesResult = (gcnew System::Windows::Forms::TextBox());
 	this->ProteinsResult = (gcnew System::Windows::Forms::TextBox());
 	this->FatsResult = (gcnew System::Windows::Forms::TextBox());
 	this->BMIResult = (gcnew System::Windows::Forms::TextBox());
 	this->KkalDayResult = (gcnew System::Windows::Forms::TextBox());
+	this->Additionally = (gcnew System::Windows::Forms::Button());
 	this->tabControlMain->SuspendLayout();
 	this->tabPageIntroduction->SuspendLayout();
 	this->tabPageQuestions->SuspendLayout();
@@ -229,6 +236,10 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	// 
 	this->tabPageResults->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tabPageResults.BackgroundImage")));
 	this->tabPageResults->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+	this->tabPageResults->Controls->Add(this->Additionally);
+	this->tabPageResults->Controls->Add(this->AboutFPC);
+	this->tabPageResults->Controls->Add(this->AboutBMI);
+	this->tabPageResults->Controls->Add(this->AboutNutrition);
 	this->tabPageResults->Controls->Add(this->FinishResult);
 	this->tabPageResults->Controls->Add(this->CarbohydratesResult);
 	this->tabPageResults->Controls->Add(this->ProteinsResult);
@@ -241,6 +252,39 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->tabPageResults->TabIndex = 2;
 	this->tabPageResults->Text = L"Результаты";
 	this->tabPageResults->UseVisualStyleBackColor = true;
+	// 
+	// AboutFPC
+	// 
+	this->AboutFPC->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+	this->AboutFPC->Location = System::Drawing::Point(134, 397);
+	this->AboutFPC->Name = L"AboutFPC";
+	this->AboutFPC->Size = System::Drawing::Size(67, 20);
+	this->AboutFPC->TabIndex = 8;
+	this->AboutFPC->Text = L"о ЖБУ";
+	this->AboutFPC->UseVisualStyleBackColor = true;
+	this->AboutFPC->Click += gcnew System::EventHandler(this, &DietApp::AboutFPC_Click);
+	// 
+	// AboutBMI
+	// 
+	this->AboutBMI->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+	this->AboutBMI->Location = System::Drawing::Point(284, 242);
+	this->AboutBMI->Name = L"AboutBMI";
+	this->AboutBMI->Size = System::Drawing::Size(67, 21);
+	this->AboutBMI->TabIndex = 7;
+	this->AboutBMI->Text = L"о BMI";
+	this->AboutBMI->UseVisualStyleBackColor = true;
+	this->AboutBMI->Click += gcnew System::EventHandler(this, &DietApp::AboutBMI_Click);
+	// 
+	// AboutNutrition
+	// 
+	this->AboutNutrition->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+	this->AboutNutrition->Location = System::Drawing::Point(284, 126);
+	this->AboutNutrition->Name = L"AboutNutrition";
+	this->AboutNutrition->Size = System::Drawing::Size(67, 21);
+	this->AboutNutrition->TabIndex = 6;
+	this->AboutNutrition->Text = L"о Питании";
+	this->AboutNutrition->UseVisualStyleBackColor = true;
+	this->AboutNutrition->Click += gcnew System::EventHandler(this, &DietApp::AboutNutrition_Click);
 	// 
 	// FinishResult
 	// 
@@ -304,6 +348,17 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->KkalDayResult->TabIndex = 0;
 	this->KkalDayResult->TextChanged += gcnew System::EventHandler(this, &DietApp::KkalDayResult_TextChanged);
 	// 
+	// Additionally
+	// 
+	this->Additionally->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+	this->Additionally->Location = System::Drawing::Point(15, 487);
+	this->Additionally->Name = L"Additionally";
+	this->Additionally->Size = System::Drawing::Size(96, 24);
+	this->Additionally->TabIndex = 9;
+	this->Additionally->Text = L"Дополнительно";
+	this->Additionally->UseVisualStyleBackColor = true;
+	this->Additionally->Click += gcnew System::EventHandler(this, &DietApp::Additionally_Click);
+	// 
 	// DietApp
 	// 
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -343,6 +398,7 @@ inline System::Void DietApp::DietApp::linkLabel1_LinkClicked(System::Object^ sen
 	catch (Exception^ ex)
 	{
 		MessageBox::Show("Не удалось перейти по ссылке", "Внимание!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		return;
 	}
 }
 
@@ -361,16 +417,22 @@ inline void DietApp::DietApp::VisitLink()
 
 inline System::Void DietApp::DietApp::buttonStart_Click(System::Object^ sender, System::EventArgs^ e) 
 {
-	String^ ClientName = "";
-	String^ ClientSurname = "";
+	// Проверка на пустую входую строку
+
+	if ((numericUpDownAge->Text == "") || (numericUpDownHeight->Text == "") || (numericUpDownWeight->Text == "") || (textBoxName->Text == "") || (textBoxSecName->Text == ""))
+	{
+		MessageBox::Show("Введены не все значения/Введенные значения некорректны!", "Внимание!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		return;
+	}
 
 	// Данные из анкеты (возраст, рост, вес)
 
 	ClientAge = System::Convert::ToDouble(numericUpDownAge->Text);
 	ClientHeight = System::Convert::ToDouble(numericUpDownHeight->Text);
 	ClientWeight = System::Convert::ToDouble(numericUpDownWeight->Text);
-	ClientName = System::Convert::ToString(textBoxName->Text);
-	ClientSurname = System::Convert::ToString(textBoxSecName->Text);
+	Convert_String_to_string(textBoxName->Text, ClientFirstName);
+	Convert_String_to_string(textBoxSecName->Text, ClientSecondName);
+	ClientFullName = ClientFirstName + " " + ClientSecondName;
 
 	// Заполнение объекта Client класса Human
 
@@ -392,9 +454,10 @@ inline System::Void DietApp::DietApp::buttonStart_Click(System::Object^ sender, 
 
 	// Проверка (введены ли все данные)
 
-	if ((ClientAge == 0.0) || (ClientHeight == 0.0) || (ClientWeight == 0.0) || (ClientName == "") || (ClientGender == ""))
+	if ((ClientAge == 0.0) || (ClientHeight == 0.0) || (ClientWeight == 0.0) || (ClientFirstName == "") || (ClientSecondName == "") || (ClientGender == ""))
 	{
 		MessageBox::Show("Введены не все значения/Введенные значения некорректны!", "Внимание!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		return;
 	}
 
 	// Вывод результатов через функцию (ShowResult)
@@ -495,5 +558,72 @@ inline void DietApp::DietApp::ShowResult(double kRes, double bmiRes, double prRe
 
 	CarbohydratesResult->Text = System::Convert::ToString(cbRes);
 
-	FinishResult->Text = gcnew System::String(trRes.c_str());
+	String^ s = "";
+
+	FinishResult->Text = Convert_string_to_String(trRes, s);
+}
+
+// Реализация функций конвертации
+
+// Конвертация из System::string ^ в std::string 
+
+std::string& DietApp::DietApp::Convert_String_to_string(String^ s, std::string& os)
+{
+	using namespace Runtime::InteropServices;
+	const char* chars =
+		(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+	os = chars;
+	Marshal::FreeHGlobal(IntPtr((void*)chars));
+
+	return os;
+}
+
+// Конвертация из std::string в System::string ^
+
+String^ DietApp::DietApp::Convert_string_to_String(std::string& os, String^ s)
+{
+	s = gcnew System::String(os.c_str()); // Конвертация
+
+	return s;
+}
+
+inline System::Void DietApp::DietApp::AboutNutrition_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	MessageBox::Show("Рациональное питание включает в себя соблюдение режима питания.\n\n"
+					 "Оптимальным является четырехразовое питание, когда прием пищи происходит с интервалом в 4 - 5 часов в одно и то же время.\n\n"
+					 "Завтрак должен составлять 25 % суточного рациона, обед – 35 %, полдник – 15 %, ужин – 25 % .\n\n"
+					 "Ужинать следует не позднее, чем за 3 часа до сна.\n\n"
+					 "Для нормального правильного питания в день нужно потреблять 55-60% углеводов, около 15% белков и жиры должны составлять менее 30% дневного рациона.", "о Питании", MessageBoxButtons::OK);
+	return;
+}
+
+inline System::Void DietApp::DietApp::AboutBMI_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	MessageBox::Show("BMI:\n\n"
+					 "меньше 16.5   -->   Крайний недостаток веса !\n\n"
+					 "от 16.5 до 18.4   -->   Недостаток веса !\n\n"
+					 "от 18.5 до 24.9   -->   Нормальный вес тела !\n\n"
+					 "от 25 до 30   -->   Избыточная масса тела !\n\n"
+					 "от 30.1 до 34.9   -->   Ожирение(класс 1) !\n\n"
+					 "от 35 до 40   -->   Ожирение(класс 2) !\n\n"
+					 "больше 40  -->   Ожирение(класс 3) !", "о BMI", MessageBoxButtons::OK);
+	return;
+}
+
+inline System::Void DietApp::DietApp::AboutFPC_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	MessageBox::Show("Жиры:\n\n"
+					 "Жиры — самый энергоемкий макронутриент. Они помогают организму в производстве гормонов, усвоении нутриентов, клеточном росте, защищают от холода и повреждений.\n\n"
+					 "Белки:\n\n"
+					 "Белки состоят из соединенных цепочек аминокислот — «строительных» веществ для тела человека. В организме используется двадцать видов аминокислот, девять из которых не могут быть синтезированы телом человека и должны поступать из еды (незаменимые аминокислоты).\n\n"
+					 "Углеводы:\n\n"
+					 "Углеводы — главные поставщики энергии для умственной и физической активности. Различают простые (глюкоза, фруктоза, галактоза, сахароза и др.) и сложные углеводы (крахмалы, пищевые волокна).", "о ЖБУ", MessageBoxButtons::OK);
+	return;
+}
+
+inline System::Void DietApp::DietApp::Additionally_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	MessageBox::Show("При избытке веса не рекомендуется извользовать диеты на «воде» и «воздухе», лучше всего расчитать сколько вы тратите энергии в день и какая энергитическая ценность у пищи которую вы потребляете\n\n"
+					 "При ожирении рекомендуется обратиться к специалисту.", "Дополнительно", MessageBoxButtons::OK);
+	return;
 }

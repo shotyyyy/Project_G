@@ -69,6 +69,14 @@ namespace DietApp {
 
 	private: System::Windows::Forms::NumericUpDown^ numericUpDownWeight;
 
+	private: System::Windows::Forms::Button^ AboutFPC;
+
+	private: System::Windows::Forms::Button^ AboutBMI;
+
+	private: System::Windows::Forms::Button^ AboutNutrition;
+	private: System::Windows::Forms::Button^ Additionally;
+
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -88,16 +96,14 @@ namespace DietApp {
 		void InitializeComponent(void);
 
 #pragma endregion
+
+	// Функция для взаимодействия с гиперссылкой
 	
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e);
 
-	private: void VisitLink();
+	// Функция перехода по ссылке
 
-	//private: System::Void toolTipResultsPage_Popup(System::Object^ sender, System::Windows::Forms::PopupEventArgs^ e) 
-	//{
-	//	toolTip->SetToolTip(linkLabelAboutUs, "В нашем приложении");
-	//	toolTip->IsBalloon = true;
-	//}
+	private: void VisitLink();
 
 	private: System::Void buttonStart_Click(System::Object^ sender, System::EventArgs^ e);
 
@@ -129,7 +135,23 @@ namespace DietApp {
 
 	private: System::Void numericUpDownWeight_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 
+	// Функция вывода
+
 	private: void ShowResult(double kRes, double bmiRes, double prRes, double ftRes, double cbRes, std::string trRes);
+
+	// Функции конвертации
+
+	private: std::string& Convert_String_to_string(String^ s, std::string& os); // Конвертация из System::string ^ в std::string
+
+	private: String^ Convert_string_to_String(std::string& os, String^ s); // Конвертация из std::string в System::string ^
+
+	private: System::Void AboutNutrition_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void AboutBMI_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void AboutFPC_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void Additionally_Click(System::Object^ sender, System::EventArgs^ e);
 
 	};
 }
