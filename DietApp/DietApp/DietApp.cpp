@@ -587,6 +587,10 @@ String^ DietApp::DietApp::Convert_string_to_String(std::string& os, String^ s)
 	return s;
 }
 
+// Функции вывода "окнон" с сообщениями
+
+// "Окно: о Питании" 
+
 inline System::Void DietApp::DietApp::AboutNutrition_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	MessageBox::Show("Рациональное питание включает в себя соблюдение режима питания.\n\n"
@@ -596,6 +600,8 @@ inline System::Void DietApp::DietApp::AboutNutrition_Click(System::Object^ sende
 					 "Для нормального правильного питания в день нужно потреблять 55-60% углеводов, около 15% белков и жиры должны составлять менее 30% дневного рациона.", "о Питании", MessageBoxButtons::OK);
 	return;
 }
+
+// "Окно: о BMI" 
 
 inline System::Void DietApp::DietApp::AboutBMI_Click(System::Object^ sender, System::EventArgs^ e)
 {
@@ -610,6 +616,8 @@ inline System::Void DietApp::DietApp::AboutBMI_Click(System::Object^ sender, Sys
 	return;
 }
 
+// "Окно: о ЖБУ" 
+
 inline System::Void DietApp::DietApp::AboutFPC_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	MessageBox::Show("Жиры:\n\n"
@@ -620,6 +628,8 @@ inline System::Void DietApp::DietApp::AboutFPC_Click(System::Object^ sender, Sys
 					 "Углеводы — главные поставщики энергии для умственной и физической активности. Различают простые (глюкоза, фруктоза, галактоза, сахароза и др.) и сложные углеводы (крахмалы, пищевые волокна).", "о ЖБУ", MessageBoxButtons::OK);
 	return;
 }
+
+// "Окно: Дополнительно" 
 
 inline System::Void DietApp::DietApp::Additionally_Click(System::Object^ sender, System::EventArgs^ e)
 {
