@@ -434,6 +434,14 @@ inline System::Void DietApp::DietApp::buttonStart_Click(System::Object^ sender, 
 	Convert_String_to_string(textBoxSecName->Text, ClientSecondName);
 	ClientFullName = ClientFirstName + " " + ClientSecondName;
 
+	// Проверка на ввод недопустимых символов (Имя/Фамилия)
+
+	if (!containsOnlyLetters(ClientFirstName) || !containsOnlyLetters(ClientSecondName))
+	{
+		MessageBox::Show("В поле Имя/Фамилия введены недопустимые символы!", "Внимание!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		return;
+	}
+
 	// Заполнение объекта Client класса Human
 
 	Human Client("имя", ClientGender, ClientWeight, ClientHeight, "средняя", ClientAge);
@@ -636,4 +644,12 @@ inline System::Void DietApp::DietApp::Additionally_Click(System::Object^ sender,
 	MessageBox::Show("При избытке веса не рекомендуется извользовать диеты на «воде» и «воздухе», лучше всего расчитать сколько вы тратите энергии в день и какая энергитическая ценность у пищи которую вы потребляете\n\n"
 					 "При ожирении рекомендуется обратиться к специалисту.", "Дополнительно", MessageBoxButtons::OK);
 	return;
+}
+
+// Функция проверки строки на наличие определенных символов
+
+inline bool DietApp::DietApp::containsOnlyLetters(std::string const& str)
+{
+	return str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZйцукенгшщзхъфывапролджэячсмитьбюёЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁ") ==
+		std::string::npos;
 }

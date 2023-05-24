@@ -74,8 +74,8 @@ namespace DietApp {
 	private: System::Windows::Forms::Button^ AboutBMI;
 
 	private: System::Windows::Forms::Button^ AboutNutrition;
-	private: System::Windows::Forms::Button^ Additionally;
 
+	private: System::Windows::Forms::Button^ Additionally;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -152,6 +152,10 @@ namespace DietApp {
 	private: System::Void AboutFPC_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void Additionally_Click(System::Object^ sender, System::EventArgs^ e);
+
+	// Функция проверки строки
+
+	private: bool containsOnlyLetters(std::string const& str);
 
 	};
 }
