@@ -7,3 +7,4 @@ C:\Users\zhlud\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\x64\
 C:\Users\zhlud\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\x64\Debug\DietApp.vcxproj.SuggestedBindingRedirects.cache
 C:\Users\zhlud\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\x64\Debug\DietApp.DietApp.resources
 C:\Users\zhlud\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\x64\Debug\DietApp.vcxproj.GenerateResource.cache
+C:\Users\olegg\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\x64\Debug\DietApp.vcxproj.SuggestedBindingRedirects.cache

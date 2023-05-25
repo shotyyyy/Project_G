@@ -64,6 +64,7 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->textBoxSecName = (gcnew System::Windows::Forms::TextBox());
 	this->textBoxName = (gcnew System::Windows::Forms::TextBox());
 	this->tabPageResults = (gcnew System::Windows::Forms::TabPage());
+	this->Additionally = (gcnew System::Windows::Forms::Button());
 	this->AboutFPC = (gcnew System::Windows::Forms::Button());
 	this->AboutBMI = (gcnew System::Windows::Forms::Button());
 	this->AboutNutrition = (gcnew System::Windows::Forms::Button());
@@ -73,7 +74,6 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->FatsResult = (gcnew System::Windows::Forms::TextBox());
 	this->BMIResult = (gcnew System::Windows::Forms::TextBox());
 	this->KkalDayResult = (gcnew System::Windows::Forms::TextBox());
-	this->Additionally = (gcnew System::Windows::Forms::Button());
 	this->tabControlMain->SuspendLayout();
 	this->tabPageIntroduction->SuspendLayout();
 	this->tabPageQuestions->SuspendLayout();
@@ -253,6 +253,17 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->tabPageResults->Text = L"Ğåçóëüòàòû";
 	this->tabPageResults->UseVisualStyleBackColor = true;
 	// 
+	// Additionally
+	// 
+	this->Additionally->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+	this->Additionally->Location = System::Drawing::Point(15, 487);
+	this->Additionally->Name = L"Additionally";
+	this->Additionally->Size = System::Drawing::Size(96, 24);
+	this->Additionally->TabIndex = 9;
+	this->Additionally->Text = L"Äîïîëíèòåëüíî";
+	this->Additionally->UseVisualStyleBackColor = true;
+	this->Additionally->Click += gcnew System::EventHandler(this, &DietApp::Additionally_Click);
+	// 
 	// AboutFPC
 	// 
 	this->AboutFPC->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
@@ -348,17 +359,6 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->KkalDayResult->TabIndex = 0;
 	this->KkalDayResult->TextChanged += gcnew System::EventHandler(this, &DietApp::KkalDayResult_TextChanged);
 	// 
-	// Additionally
-	// 
-	this->Additionally->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
-	this->Additionally->Location = System::Drawing::Point(15, 487);
-	this->Additionally->Name = L"Additionally";
-	this->Additionally->Size = System::Drawing::Size(96, 24);
-	this->Additionally->TabIndex = 9;
-	this->Additionally->Text = L"Äîïîëíèòåëüíî";
-	this->Additionally->UseVisualStyleBackColor = true;
-	this->Additionally->Click += gcnew System::EventHandler(this, &DietApp::Additionally_Click);
-	// 
 	// DietApp
 	// 
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -372,6 +372,7 @@ inline void DietApp::DietApp::InitializeComponent(void)
 	this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 	this->Name = L"DietApp";
 	this->Text = L"Diet App";
+	this->Load += gcnew System::EventHandler(this, &DietApp::DietApp_Load);
 	this->tabControlMain->ResumeLayout(false);
 	this->tabPageIntroduction->ResumeLayout(false);
 	this->tabPageIntroduction->PerformLayout();
@@ -650,6 +651,5 @@ inline System::Void DietApp::DietApp::Additionally_Click(System::Object^ sender,
 
 inline bool DietApp::DietApp::containsOnlyLetters(std::string const& str)
 {
-	return str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéöóêåíãøùçõúôûâàïğîëäæıÿ÷ñìèòüáş¸ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜÁŞ¨") ==
-		std::string::npos;
+	return str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéöóêåíãøùçõúôûâàïğîëäæıÿ÷ñìèòüáş¸ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜÁŞ¨") == std::string::npos;
 }

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DietApp"
   ],
-  "SelectedNode": "\\DietApp.sln",
+  "SelectedNode": "\\DietApp\\DietApp.h",
   "PreviewInSolutionExplorer": false
 }

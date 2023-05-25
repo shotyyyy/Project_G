@@ -77,6 +77,9 @@ namespace DietApp {
 
 	private: System::Windows::Forms::Button^ Additionally;
 
+
+
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -157,5 +160,7 @@ namespace DietApp {
 
 	private: bool containsOnlyLetters(std::string const& str);
 
-	};
+	private: System::Void DietApp_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
