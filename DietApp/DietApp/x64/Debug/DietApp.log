@@ -1,12 +1,6 @@
-﻿  CalculationsDiets.cpp
-  DietApp.cpp
+﻿  DietApp.cpp
 C:\Users\olegg\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\DietApp.cpp(399,20): warning C4101: ex: неиспользованная локальная переменная
-  Human.cpp
   DietAppMain.cpp
-  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
   Создание кода...
-C:\Users\olegg\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\Human.cpp(92): warning C4715: Human::clculatingActivity: значение возвращается не при всех путях выполнения
-C:\Users\olegg\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\CalculationsDiets.cpp(32): warning C4715: Diet::KklaPerDay: значение возвращается не при всех путях выполнения
-C:\Users\olegg\OneDrive\Документы\GitHub\Project_G\DietApp\DietApp\CalculationsDiets.cpp(120): warning C4715: Diet::training: значение возвращается не при всех путях выполнения
   CalculationsDiets.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   DietApp.vcxproj -> C:\Users\olegg\OneDrive\Документы\GitHub\Project_G\DietApp\x64\Debug\DietApp.exe

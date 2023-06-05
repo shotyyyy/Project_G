@@ -77,9 +77,6 @@ namespace DietApp {
 
 	private: System::Windows::Forms::Button^ Additionally;
 
-
-
-
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
